@@ -1,0 +1,31 @@
+# Programación Orientada a Objetos (POO)
+# Ejemplo: Gestión de una bicicleta eléctrica
+
+class ElectricBike:
+    def __init__(self, battery_efficiency=50):
+        self.battery_level = 0
+        self.mileage = 0
+        self.battery_efficiency = battery_efficiency
+
+    def charge_battery(self, amount):
+        self.battery_level += amount
+
+    def ride(self, distance):
+        battery_needed = distance / self.battery_efficiency
+        if battery_needed <= self.battery_level:
+            self.battery_level -= battery_needed
+            self.mileage += distance
+            print("Riding:", distance, "miles")
+        else:
+            print("Not enough battery to ride that far.")
+
+# Crear una instancia de la clase ElectricBike
+bike = ElectricBike()
+
+# Uso de los métodos en la programación orientada a objetos
+bike.charge_battery(10)
+bike.ride(100)
+
+# Imprimir la distancia recorrida y el nivel de batería restante
+print("Mileage (OOP):", bike.mileage)
+print("Battery Level (OOP):", bike.battery_level)
